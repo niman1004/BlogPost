@@ -1,8 +1,20 @@
-# React + Vite
+📘 BlogPost App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern blog platform built with React and powered by Appwrite for backend services like authentication, database, and storage.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔐 User Authentication (Sign up, Login, Logout)
+
+📝 Create, Read, Update, and Delete (CRUD) blog posts
+
+🗂️ Appwrite Database integration
+
+🖼️ Upload and display blog cover images using Appwrite Storage
+
+💡 Responsive UI built with React
+
+🛠️ Tech Stack
+Frontend: React, React Router, Tailwind CSS
+
+Backend: Appwrite 
