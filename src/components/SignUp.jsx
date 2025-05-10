@@ -8,7 +8,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Logo from "./logo";
 
-function SignUp() {
+function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -82,4 +82,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;
