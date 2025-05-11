@@ -23,24 +23,26 @@ function PostCard({ $id, title, content, featuredImage }) {
 
     return (
         <Link to={`/post/${$id}`}>
-            <div className="w-full max-w-2xl min-h-32 rounded-2xl border border-blue-950 p-4 flex gap-4 shadow-md hover:bg-gradient-to-r from-slate-50 to-blue-100 hover:shadow-xl transition-transform hover:scale-[1.02]">
-                <div className="w-2/5 relative">
-                    {imageUrl ? (
-                        <img
-                            className="w-full rounded-l-xl"
-                            src={imageUrl}
-                            alt={title}
-                        />
-                    ) : (
-                        <div className="w-full h-40 bg-gray-200 rounded-l-xl animate-pulse" />
-                    )}
-                </div>
-                <div className='flex flex-col'>
-                    <h1 className="text-lg font-bold text-blue-950  leading-tight font-serif">{title}</h1>
-                    <p className='font-s text-gray-500   font-serif'><i>{postPrev}</i></p>
-                </div>
-            </div>
-        </Link>
+  <div className="relative w-full max-w-sm h-64 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300">
+    
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{ backgroundImage: `url(${imageUrl})` }}
+    ></div>
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+    {/* Text content */}
+    <div className="relative z-10 h-full p-4 flex flex-col justify-end text-white">
+    
+      <h1 className="text-xl font-bold leading-tight font-serif">{title}</h1>
+      <p className="text-sm font-serif opacity-90"><i>{postPrev}</i></p>
+    </div>
+  </div>
+</Link>
+
     )
 }
 

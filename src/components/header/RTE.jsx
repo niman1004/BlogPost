@@ -3,7 +3,7 @@ import {Controller} from 'react-hook-form'
 import {Editor} from '@tinymce/tinymce-react'
 
 function RTE({
-    name , control , label , defaultValue=""
+    name , control , label 
 }) {
   return (
     <div className='w-full'>
@@ -13,10 +13,11 @@ function RTE({
         <Controller
         name={name || "content"}
         control={control}
-        render={({field:{onChange}}) => (
+        render={({field:{onChange , value}}) => (
             <Editor
              apiKey='rgc78ey8tjrwlkcg9js9ndcnzvlfjxqr46maybg00125xlu6'
-            initialValue={defaultValue}
+            initialValue={value || ""}
+            onEditorChange={onChange}
             init={{
                 height:500 ,
                 menubar:true,
@@ -29,7 +30,7 @@ function RTE({
 
                
             }}
-            onEditorChange={onChange}
+            
             />
         )}
         />

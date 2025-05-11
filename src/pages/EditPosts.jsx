@@ -5,7 +5,7 @@ import PostForm from '../components/postform/PostForm'
 import appwriteService from '../appwrite/config'
 
 function EditPosts() {
-  const [post , setPost]= useState('happy')
+  const [post , setPost]= useState(null)
   const {slug}= useParams()
   const navigate = useNavigate()
 

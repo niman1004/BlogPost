@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import {login as authLogin} from '../store/authSlice'
 import { useNavigate , Link } from 'react-router-dom'
+import loginBG from '../assets/loginBG.jpg'
+
 
 function Login() {
     const navigate = useNavigate();
@@ -41,8 +43,8 @@ function Login() {
     }
   }
   return (
-    <div className="flex items-center justify-center">
-      <div className="mx-auto w-full max-w-lg rounded-xl p-10 border border-blue-950">
+    <div className="flex items-center justify-center  " >
+      <div className="mx-auto w-full max-w-lg rounded-xl p-10 border border-blue-950 bg-white " >
         <div className="mb-2 flex justify-center">
     
           <span className="inline-block w-full max-w-[100px]">
