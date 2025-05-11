@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import {login as authLogin} from '../store/authSlice'
 import { useNavigate , Link } from 'react-router-dom'
-import loginBG from '../assets/loginBG.jpg'
+
 
 
 function Login() {
@@ -82,7 +82,6 @@ function Login() {
             </Button>
           </div>
         </form>
-
       </div>
       
     </div>
