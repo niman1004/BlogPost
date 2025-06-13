@@ -20,7 +20,7 @@ import AuthLayout from './components/AuthLayout.jsx'
 
 const router= createBrowserRouter([
   {
-    path:"/",
+    path:"/BlogPost",
     element: <App/>,
     children: [
       {
