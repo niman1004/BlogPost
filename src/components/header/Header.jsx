@@ -16,7 +16,7 @@ function Header( ) {
     const navItems= [
         {
             name:'Home',
-            slug:'/BlogPost',
+            slug:'/',
             active: true
         }, 
         {
@@ -48,7 +48,7 @@ function Header( ) {
         <Container>
             <nav className='flex'>
                 <div className='mr-4'>
-                    <Link to='/BlogPost'>
+                    <Link to='/t'>
                         <Logo  />
                     </Link>
                 </div>
