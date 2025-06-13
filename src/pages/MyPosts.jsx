@@ -16,6 +16,7 @@ function MyPosts() {
           const userPosts = response.documents.filter(
             (post) => post.userID === userData.$id
           );
+          userPosts.reverse(); // Reverse the order to show latest posts first
           setPosts(userPosts);
         }
       });
