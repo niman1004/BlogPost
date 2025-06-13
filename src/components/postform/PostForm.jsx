@@ -95,89 +95,91 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
-        <Input
-          label="Title"
-          placeholder="Title"
-          className="mb-4"
-          {...register("title", { required: true })}
-        />
-        <Input
-          label="Slug :"
-          placeholder="slug"
-          className="mb-4"
-          {...register("slug", { required: true })}
-          onInput={(e) => {
-            setValue("slug", slugTransform(e.currentTarget.value), {
-              shouldValidate: true,
-            });
-          }}
-        />
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap -mx-2">
+  <div className="w-full lg:w-2/3 px-2 mb-4">
+    <Input
+      label="Title"
+      placeholder="Title"
+      className="mb-4"
+      {...register("title", { required: true })}
+    />
+    <Input
+      label="Slug :"
+      placeholder="slug"
+      className="mb-4"
+      {...register("slug", { required: true })}
+      onInput={(e) => {
+        setValue("slug", slugTransform(e.currentTarget.value), {
+          shouldValidate: true,
+        });
+      }}
+    />
 
-        <RTE
-          name="content"
-          control={control}
-          label="Content"
-          defaultValue={getValues("content")}
+    <RTE
+      name="content"
+      control={control}
+      label="Content"
+      defaultValue={getValues("content")}
+    />
+  </div>
+
+  <div className="w-full lg:w-1/3 px-2">
+    <Input
+      label="Featured Image"
+      type="file"
+      className="mb-4"
+      accept="image/png , image/jpg , image/jpeg"
+      {...register("image", { required: !post })}
+    />
+
+    {post && (
+      <div className="w-full mb-4">
+        <img
+          src={appwriteService.getPic(post.featuredImage)}
+          alt={post.title}
+          className="w-full h-auto object-cover rounded"
         />
       </div>
+    )}
 
-      <div className="w-1/3 px-2">
-        <Input
-          label="Featured Image"
-          type="file"
-          className="mb-4"
-          accept="image/png , image/jpg , image/jpeg"
-          {...register("image", { required: !post })}
-        />
+    <Select
+      options={["active", "inactive"]}
+      label="Status"
+      className="mb-4"
+      {...register("status", { required: true })}
+    />
 
-        {post && (
-          <div className="w-full mb-4">
-            <img
-              src={appwriteService.getPic(post.featuredImage)}
-              alt={post.title}
-            />
-          </div>
-        )}
-
-        <Select
-          options={["active", "inactive"]}
-          label="Status"
-          className="mb-4"
-          {...register("status", { required: true })}
-        />
-
-        <Button
-          type="submit"
-          className="w-full flex items-center justify-center gap-2"
-          disabled={isSubmitting}
+    <Button
+      type="submit"
+      className="w-full flex items-center justify-center gap-2"
+      disabled={isSubmitting}
+    >
+      {isSubmitting && (
+        <svg
+          className="animate-spin h-5 w-5 text-blue-950"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
         >
-          {isSubmitting && (
-            <svg
-              className="animate-spin h-5 w-5 text-blue-950"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              ></path>
-            </svg>
-          )}
-          {post ? "Update" : isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
-      </div>
-    </form>
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          ></path>
+        </svg>
+      )}
+      {post ? "Update" : isSubmitting ? "Submitting..." : "Submit"}
+    </Button>
+  </div>
+</form>
+
   );
 }
