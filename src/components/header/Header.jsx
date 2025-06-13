@@ -48,7 +48,7 @@ function Header( ) {
         <Container>
             <nav className='flex'>
                 <div className='mr-4'>
-                    <Link to='/'>
+                    <Link to='/BlogPost'>
                         <Logo  />
                     </Link>
                 </div>
