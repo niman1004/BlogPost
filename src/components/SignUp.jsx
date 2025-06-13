@@ -29,7 +29,7 @@ function Signup() {
         if (currentUser) {
           dispatch(login({ userData: currentUser }));
           setSuccess(true);
-          setTimeout(() => navigate("/"), 1000);
+          setTimeout(() => navigate("/BlogPost"), 1000);
         }
       }
     } catch (error) {
